@@ -46,6 +46,8 @@ class Real_time_monitoringPlugin(octoprint.plugin.SettingsPlugin,
         }
 
     def on_event(self, event, payload):
+        if event == "PrintStarted":
+            self._logger.info("PrintStarted event received: %s \n\n\n\n\n\n\n" % str(payload))
         if event == "ZChange":
             self._logger.info("ZChange event received: %s" % str(payload))
         return super().on_event(event, payload)
