@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_real_time_monitoring/templates *
+recursive-include octoprint_real_time_monitoring/translations *
+recursive-include octoprint_real_time_monitoring/static *
