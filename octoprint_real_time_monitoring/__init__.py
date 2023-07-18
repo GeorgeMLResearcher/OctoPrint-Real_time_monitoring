@@ -1,6 +1,7 @@
 # coding=utf-8
 from __future__ import absolute_import
 import octoprint.plugin
+import cv2
 
 class Real_time_monitoringPlugin(octoprint.plugin.SettingsPlugin,
     octoprint.plugin.AssetPlugin,
@@ -48,6 +49,9 @@ class Real_time_monitoringPlugin(octoprint.plugin.SettingsPlugin,
     def on_event(self, event, payload):
         if event == "PrintStarted":
             self._logger.info("PrintStarted event received: %s \n\n\n\n\n\n\n" % str(payload))
+            cv2.imshow("image", cv2.imread("printer.jpg"))
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
         if event == "ZChange":
             self._logger.info("ZChange event received: %s" % str(payload))
         return super().on_event(event, payload)
